@@ -1,0 +1,32 @@
+import java.util.Scanner;
+import java.util.Arrays;
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter text:");
+        String str = sc.nextLine();
+        str = str.toLowerCase();
+        HashMap<Character , Integer> map = new HashMap<Character , Integer>();
+        boolean flash = false;
+        for(int i = 0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(map.get(ch)==null){
+                map.put(ch,1);
+            }
+            else{
+                map.put(ch,map.get(ch)+1);
+            }
+        }
+        for(int i =0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(map.get(ch)==1){
+                System.out.println("Non repeated :"+ch);
+                flash = true;
+                break;
+            }
+        }
+       
+}
+}
